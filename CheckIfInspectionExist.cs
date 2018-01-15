@@ -10,7 +10,7 @@ using System.Activities;
 
 namespace MOE.CustomActivity
 {
-    class CheckIfInspectionExist
+    public class CheckIfInspectionExist
     {
     }
 }
