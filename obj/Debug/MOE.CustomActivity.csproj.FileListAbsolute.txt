@@ -1,0 +1,47 @@
+C:\Users\shmoussa\Desktop\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.dll
+C:\Users\shmoussa\Desktop\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.pdb
+C:\Users\shmoussa\Desktop\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\Users\shmoussa\Desktop\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
+C:\Users\shmoussa\Desktop\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\Users\shmoussa\Desktop\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+C:\Users\shmoussa\Desktop\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csprojResolveAssemblyReference.cache
+C:\Users\shmoussa\Desktop\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.dll
+C:\Users\shmoussa\Desktop\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.pdb
+E:\Backup\CRM\Projects\MOE\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.dll
+E:\Backup\CRM\Projects\MOE\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.pdb
+E:\Backup\CRM\Projects\MOE\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.xml
+E:\Backup\CRM\Projects\MOE\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+E:\Backup\CRM\Projects\MOE\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csprojResolveAssemblyReference.cache
+E:\Backup\CRM\Projects\MOE\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.dll
+E:\Backup\CRM\Projects\MOE\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.pdb
+E:\Backup\CRM\Projects\MOE\Inspection\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.dll
+E:\Backup\CRM\Projects\MOE\Inspection\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.pdb
+E:\Backup\CRM\Projects\MOE\Inspection\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.xml
+E:\Backup\CRM\Projects\MOE\Inspection\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
+E:\Backup\CRM\Projects\MOE\Inspection\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csprojResolveAssemblyReference.cache
+E:\Backup\CRM\Projects\MOE\Inspection\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.dll
+E:\Backup\CRM\Projects\MOE\Inspection\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.pdb
+C:\Users\ahalabi\Desktop\MOE.CustomActivity(1)\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.dll
+C:\Users\ahalabi\Desktop\MOE.CustomActivity(1)\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.pdb
+C:\Users\ahalabi\Desktop\MOE.CustomActivity(1)\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csprojResolveAssemblyReference.cache
+C:\Users\ahalabi\Desktop\MOE.CustomActivity(1)\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.dll
+C:\Users\ahalabi\Desktop\MOE.CustomActivity(1)\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.pdb
+C:\Users\souheil\Desktop\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.dll
+C:\Users\souheil\Desktop\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.pdb
+C:\Users\souheil\Desktop\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csprojResolveAssemblyReference.cache
+C:\Users\souheil\Desktop\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csproj.CoreCompileInputs.cache
+C:\Users\souheil\Desktop\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.dll
+C:\Users\souheil\Desktop\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.pdb
+C:\Users\souheil\Desktop\MOE.CustomActivity\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+F:\Projects\MOE00105 - Inspection & Evaluation\MOE.Code\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.dll
+F:\Projects\MOE00105 - Inspection & Evaluation\MOE.Code\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.pdb
+F:\Projects\MOE00105 - Inspection & Evaluation\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csprojResolveAssemblyReference.cache
+F:\Projects\MOE00105 - Inspection & Evaluation\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csproj.CoreCompileInputs.cache
+F:\Projects\MOE00105 - Inspection & Evaluation\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.dll
+F:\Projects\MOE00105 - Inspection & Evaluation\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.pdb
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.dll
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\bin\Debug\MOE.CustomActivity.pdb
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csprojResolveAssemblyReference.cache
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csproj.CoreCompileInputs.cache
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.dll
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.pdb
