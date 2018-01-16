@@ -12,7 +12,7 @@ using System.Activities;
 
 namespace MOE.CustomActivity
 {
-    public class PublishInstituteTypeOnApprovalCycle : CodeActivity
+    public class UpdateApprovalCycle : CodeActivity
     {
         /// <summary>
         /// Workflow input
@@ -63,8 +63,42 @@ namespace MOE.CustomActivity
                 Entity instituteType = (Entity)service.Retrieve("net_educationalinstitutetype", 
                     educationalInstitute.GetAttributeValue<EntityReference>("net_typeofinstitute").Id, new ColumnSet(true));
 
+                //Retrieve the first QA Configuration record.
+                string fetch = @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+  <entity name='net_qaconfiguration'>
+    <attribute name='net_qaconfigurationid' />
+    <attribute name='net_name' />
+    <attribute name='createdon' />
+    <attribute name='net_numberofdays' />
+    <order attribute='net_name' descending='false' />
+    <filter type='and'>
+      <condition attribute='statecode' operator='eq' value='0' />
+    </filter>
+  </entity>
+</fetch>";
+                EntityCollection QAConfigurations = service.RetrieveMultiple(new FetchExpression(fetch));
+                Entity QAConfiguration = QAConfigurations.Entities.FirstOrDefault<Entity>();
+                int numberOfDaysToWait = QAConfiguration.GetAttributeValue<int>("net_numberofdays");
+
+                //Get the school id.
+                string schoolSIS = educationalInstitute.GetAttributeValue<string>("net_schoolid");
+                //get the year.
+                DateTime now = DateTime.Now;
+                string year = now.Year.ToString();
+                //get the visit type.
+                Entity visitType = (Entity)service.Retrieve("net_inspectionvisittype", entity.GetAttributeValue<EntityReference>("net_inspectionvisittype").Id, new ColumnSet(true));
+                string nameOfVisit = visitType.GetAttributeValue<string>("net_name");
+                //get the work order number.
+                string workOrderNumber = entity.GetAttributeValue<string>("msdyn_name");
+                //get the term.
+                string term = entity.FormattedValues["net_term"];
+
+                string name = schoolSIS + "/" + year + "/" + term + "/" + nameOfVisit + "/" + workOrderNumber;
+
                 //Update the Approval Cycle Record.
                 approvalCycle["net_institutetype"] = new EntityReference("net_educationalinstitutetype", instituteType.Id);
+                approvalCycle["net_qaresponsedaysnumber"] = numberOfDaysToWait;
+                approvalCycle["net_name"] = name;
                 service.Update(approvalCycle);
             }
         }
