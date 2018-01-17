@@ -62,6 +62,7 @@
     <Compile Include="CreateTasksEvaluation.cs" />
     <Compile Include="EvaluationSetCharacteristic.cs" />
     <Compile Include="GenerateElementsForQAReport.cs" />
+    <Compile Include="InspectionCalculation.cs" />
     <Compile Include="UpdateApprovalCycle.cs" />
     <Compile Include="PublishLeaderOnInspectionElement.cs" />
     <Compile Include="ShareLastSelfCompliance.cs" />
