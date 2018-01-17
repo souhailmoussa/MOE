@@ -7,6 +7,8 @@ using System.Activities;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Sdk.Workflow;
+using Microsoft.Xrm.Sdk.Messages;
+using Microsoft.Xrm.Sdk.Metadata;
 
 namespace MOE.CustomActivity
 {
@@ -56,6 +58,9 @@ namespace MOE.CustomActivity
                         //define the sum of judgment.
                         int sumOfJudgment = 0;
 
+                        //define the weight.
+                        int sumOfWeight = 0;
+
                         //define the Overall Judgment Percentage
                         Decimal overallJudgmentPercentage = 0;
 
@@ -71,18 +76,57 @@ namespace MOE.CustomActivity
                         foreach(Entity element in elementStandards.Entities)
                         {
                             //Get the compliance status
-                            int complianceStatus = element.GetAttributeValue<OptionSetValue>("net_compliantcoordinator").Value;
-                            //if status != N/A
-                            if (complianceStatus != 3)
+                            OptionSetValue complianceStatus = element.GetAttributeValue<OptionSetValue>("net_compliantcoordinator");
+
+                            if(complianceStatus != null)
                             {
-                                //increment the total number of applicable element.
-                                totalNumberofApplicableElement = totalNumberofApplicableElement + 1;
+                                int elementStatus = complianceStatus.Value;
+                                //if status != N/A
+                                if (elementStatus != 3)
+                                {
+                                    //increment the total number of applicable element.
+                                    totalNumberofApplicableElement = totalNumberofApplicableElement + 1;
+                                }
                             }
+                            
 
                             int elementJudgment = element.GetAttributeValue<int>("net_inspectionjudgement");
+                            //add the element judgment to the sum of judgment.
                             sumOfJudgment = sumOfJudgment + elementJudgment;
-                        }
 
+                            //get the weight.
+                            int weight = element.GetAttributeValue<int>("net_weight");
+                            //add the weight to the sumofweight.
+                            sumOfWeight = sumOfWeight + weight;
+
+                            weightedScore = weightedScore + (elementJudgment * weight);
+                        }
+                        if(totalNumberofApplicableElement != 0)
+                        {
+                            overallJudgmentPercentage = (Decimal)(sumOfJudgment) * (Decimal) 100 / (Decimal)(2 * totalNumberofApplicableElement);
+                        }
+                        else
+                        {
+                            overallJudgmentPercentage = 0;
+                        }
+                        if(sumOfWeight != 0)
+                        {
+                            weightedScore = weightedScore / sumOfWeight;
+                        }
+                        else
+                        {
+                            weightedScore = 0;
+                        }
+                        
+
+                        weightedScorePercentage = weightedScore / 2 * 100;
+
+                        standard["net_totalofapplicableelement"] = totalNumberofApplicableElement;
+                        standard["net_sumofjudgment"] = sumOfJudgment;
+                        standard["net_compliancepercentage"] = overallJudgmentPercentage;
+                        standard["net_weightedscore"] = weightedScore;
+                        standard["net_weightedscorepercentage"] = weightedScorePercentage;
+                        service.Update(standard);
                     }
                 }
             }
