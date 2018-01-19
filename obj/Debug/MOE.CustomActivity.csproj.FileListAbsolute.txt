@@ -45,3 +45,7 @@ F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivit
 F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.csproj.CoreCompileInputs.cache
 F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.dll
 F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\obj\Debug\MOE.CustomActivity.pdb
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.dll
+F:\Projects\MOE00105 - Inspection & Evaluation\Common\MOE.Code\MOE.CustomActivity\bin\Debug\Microsoft.Xrm.Sdk.xml
