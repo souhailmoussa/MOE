@@ -140,6 +140,10 @@ namespace MOE.CustomActivity
             //Get the school type of that school.
             EntityReference schoolType = (EntityReference)educationalInstitute["net_typeofinstitute"];
 
+            //Get the School category and sub-category.
+            EntityReference schoolCategory = (EntityReference)educationalInstitute.GetAttributeValue<EntityReference>("net_educationalinstitutecategory");
+            EntityReference schoolSubCategory = (EntityReference)educationalInstitute.GetAttributeValue<EntityReference>("net_educationalinstitutesubcategory");
+
             string fetch = @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='true'>
   <entity name='net_standard'>
     <attribute name='net_standardid' />
@@ -148,11 +152,14 @@ namespace MOE.CustomActivity
     <order attribute='net_name' descending='false' />
     <filter type='and'>
       <condition attribute='net_visittype' operator='eq' value='"+VisitType.Id+@"' />
-      <condition attribute='net_institutetype' operator='eq' value='"+schoolType.Id+@"' />
-    </filter>
+      <condition attribute='net_institutetype' operator='eq' value='"+schoolType.Id+ @"' />
+      <condition attribute='net_institutecategory' operator='eq' value='" + schoolCategory.Id + @"' />
+      <condition attribute='net_institutesubcategory' operator='eq' value='" + schoolSubCategory.Id + @"' />
+   
+       </filter>
     <link-entity name='net_standardandinspectiontype' from='net_standard' to='net_standardid' alias='ab'>
       <filter type='and'>
-        <condition attribute='net_workordertype' operator='eq' value='"+WorkOrderType.Id+@"' />
+        <condition attribute='net_workordertype' operator='eq' value='" + WorkOrderType.Id+@"' />
       </filter>
     </link-entity>
   </entity>

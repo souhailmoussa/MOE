@@ -80,6 +80,31 @@ namespace MOE.CustomActivity
                 Entity QAConfiguration = QAConfigurations.Entities.FirstOrDefault<Entity>();
                 int numberOfDaysToWait = QAConfiguration.GetAttributeValue<int>("net_numberofdays");
 
+                //Retrieve the Authorized Person for ECE and HE.
+                string authorisedUserFetch = @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+  <entity name='net_authorizationperson'>
+    <attribute name='net_authorizationpersonid' />
+    <attribute name='net_name' />
+    <attribute name='createdon' />
+    <attribute name='net_heauthorizedperson' />
+    <attribute name='net_eceauthorizedperson' />
+    <order attribute='net_name' descending='false' />
+  </entity>
+</fetch>";
+
+                EntityCollection authorisedUsers = service.RetrieveMultiple(new FetchExpression(authorisedUserFetch));
+                Entity authorisedUser = authorisedUsers.Entities.FirstOrDefault<Entity>();
+                 if(instituteType.GetAttributeValue<string>("net_name") == "Higher Education")
+                {
+                    EntityReference HEAuthorisedUser = authorisedUser.GetAttributeValue<EntityReference>("net_heauthorizedperson");
+                    approvalCycle["net_authoriseduser"] = new EntityReference("systemuser", HEAuthorisedUser.Id);
+                }
+                 else if(instituteType.GetAttributeValue<string>("net_name") == "Early Childhood Education")
+                {
+                    EntityReference ECEAuthorisedUser = authorisedUser.GetAttributeValue<EntityReference>("net_eceauthorizedperson");
+                    approvalCycle["net_authoriseduser"] = new EntityReference("systemuser", ECEAuthorisedUser.Id);
+                }
+
                 //Get the school id.
                 string schoolSIS = educationalInstitute.GetAttributeValue<string>("net_schoolid");
                 //get the year.

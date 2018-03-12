@@ -99,7 +99,7 @@ function RejectAction() {
     }
 
     else if (Formstatus == 279670001) {
-        var GUID = "18519ba4-4ab4-4ebf-b736-7e5d9710b07d";
+        var GUID = "f5f506db-1d35-4a3c-a6fd-e58135baec21";
         Xrm.Page.data.process.setActiveStage(GUID, function (result) {
             if (result == "success") {
                 return;

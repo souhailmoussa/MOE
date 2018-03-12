@@ -7,8 +7,8 @@
         //  alert("hello");
         //var activeStage = Xrm.Page.data.process.getActiveStage();
         //alert(activeStage);
-        var stageID = Xrm.Page.getAttribute("stageid").getValue();
-        alert(stageID);
+        //var stageID = Xrm.Page.getAttribute("stageid").getValue();
+        //alert(stageID);
         //var instituteType = Xrm.Page.getAttribute("net_institutetype").getValue()[0].name;
         //if (instituteType == "Higher Education") {
         //    var processId = "C691B451-5D94-4405-B270-BFD01A831FB4"
