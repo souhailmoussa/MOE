@@ -33,7 +33,7 @@
 
         Xrm.Page.ui.tabs.get("tab_3").sections.get("SUMMARY_TAB_section_6").setVisible(false);
 
-        Xrm.Page.ui.tabs.get("tab_3").sections.get("SUMMARY_TAB_section_9").setVisible(false);
+        //Xrm.Page.ui.tabs.get("tab_3").sections.get("SUMMARY_TAB_section_9").setVisible(false);
 
         Xrm.Page.ui.tabs.get("tab_3").sections.get("SOCIAL_PANE_TAB").setVisible(false);
 

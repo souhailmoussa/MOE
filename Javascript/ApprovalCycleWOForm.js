@@ -4,6 +4,13 @@
     if (FormType == 2) {
         //ShowHideAddqaDays();
         EnableComment();
+
+        var recordStatus = Xrm.Page.getAttribute("statuscode").getValue();
+        //if status is published ==> finish the business process flow.
+        if (recordStatus == 279670002) {
+            Xrm.Page.data.process.setStatus("finished");
+        }
+
         //  alert("hello");
         //var activeStage = Xrm.Page.data.process.getActiveStage();
         //alert(activeStage);
@@ -55,6 +62,7 @@ function EnableComment() {
     }
 }
 
+//function to retrieve the section head team id.
 function getSHTeamId() {
 
 
@@ -89,6 +97,7 @@ function getSHTeamId() {
     return SHteamId;
 }
 
+//function to get the QA Team id.
 function getQateamId() {
     //get qa team id 
 
@@ -120,7 +129,7 @@ function getQateamId() {
     return QateamId;
 }
 
-
+//check if user is in team.
 function checkUserInTeam(UserId, TeamId) {
 
     var UserInteam = false;
@@ -238,5 +247,12 @@ function SetQaEndDate() {
             Xrm.Page.getAttribute("net_qaenddate").setValue(qastartdate);
             Xrm.Page.data.entity.save();
         }
+    }
+}
+
+function setStatusStageToFinished() {
+    var recordStatus = Xrm.Page.getAttribute("statuscode").getValue();
+    if (recordStatus == 279670002) {
+        Xrm.Page.data.process.setStatus("finished");
     }
 }

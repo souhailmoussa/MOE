@@ -83,7 +83,57 @@ namespace MOE.CustomActivity
                 EntityCollection workOrders = service.RetrieveMultiple(new FetchExpression(selfCompliance));
                 Entity workorder = workOrders[0];
 
-                ShareRecordasReadOnly(Resource.GetAttributeValue<EntityReference>("userid").Id, workorder, service);
+                string queryStandard = @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+  <entity name='net_inspectionstandard'>
+    <attribute name='net_inspectionstandardid' />
+    <attribute name='net_name' />
+    <attribute name='createdon' />
+    <order attribute='net_name' descending='false' />
+    <filter type='and'>
+      <condition attribute='net_workorder' operator='eq' uitype='msdyn_workorder' value='"+workorder.Id+@"' />
+    </filter>
+  </entity>
+</fetch>";
+//                string queryDomain = @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+//  <entity name='msdyn_workorderservice'>
+//    <attribute name='createdon' />
+//    <attribute name='msdyn_workorder' />
+//    <attribute name='msdyn_name' />
+//    <attribute name='msdyn_workorderserviceid' />
+//    <order attribute='msdyn_name' descending='false' />
+//    <filter type='and'>
+//      <condition attribute='msdyn_workorder' operator='eq' uitype='msdyn_workorder' value='" + workorder.Id + @"' />
+//    </filter>
+//  </entity>
+//</fetch>";
+
+//                string queryElement = @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
+//  <entity name='msdyn_workorderservicetask'>
+//    <attribute name='msdyn_workorderservicetaskid' />
+//    <attribute name='msdyn_name' />
+//    <attribute name='net_compliantcoordinator' />
+//    <attribute name='net_coordinatorcomment' />
+//    <order attribute='msdyn_name' descending='false' />
+//    <filter type='and'>
+//      <condition attribute='msdyn_workorder' operator='eq' uitype='msdyn_workorder' value='" + workorder.Id + @"' />
+//    </filter>
+//  </entity>
+//</fetch>";
+
+                EntityCollection inspectionStandards = service.RetrieveMultiple(new FetchExpression(queryStandard));
+                //EntityCollection inspectionDomains = service.RetrieveMultiple(new FetchExpression(queryDomain));
+                //EntityCollection inspectionElements = service.RetrieveMultiple(new FetchExpression(queryElement));
+
+                if(inspectionStandards.Entities.Count > 0)
+                {
+                    foreach (Entity inspectionStandard in inspectionStandards.Entities)
+                    {
+                        ShareRecordasReadOnly(Resource.GetAttributeValue<EntityReference>("userid").Id, inspectionStandard, service);
+                    }
+                }
+
+
+                ShareRecordasReadWrite(Resource.GetAttributeValue<EntityReference>("userid").Id, workorder, service);
             }
         }
 
@@ -104,6 +154,24 @@ namespace MOE.CustomActivity
                 // Execute the request.
                 GrantAccessResponse grantResponse =
                     (GrantAccessResponse)service.Execute(grantRequest);
+        }
+
+        private void ShareRecordasReadWrite(Guid Userid, Entity task, IOrganizationService service)
+        {
+            GrantAccessRequest grantRequest = new GrantAccessRequest()
+            {
+
+                Target = new EntityReference(task.LogicalName, task.Id),
+                PrincipalAccess = new PrincipalAccess()
+                {
+                    Principal = new EntityReference("systemuser", Userid),
+                    AccessMask = AccessRights.ReadAccess | AccessRights.WriteAccess
+                }
+            };
+
+            // Execute the request.
+            GrantAccessResponse grantResponse =
+                (GrantAccessResponse)service.Execute(grantRequest);
         }
     }
 }

@@ -70,6 +70,7 @@ namespace MOE.CustomActivity
     <attribute name='net_name' />
     <attribute name='createdon' />
     <attribute name='net_numberofdays' />
+    <attribute name='net_numberofdaysfortranslation' />
     <order attribute='net_name' descending='false' />
     <filter type='and'>
       <condition attribute='statecode' operator='eq' value='0' />
@@ -79,6 +80,7 @@ namespace MOE.CustomActivity
                 EntityCollection QAConfigurations = service.RetrieveMultiple(new FetchExpression(fetch));
                 Entity QAConfiguration = QAConfigurations.Entities.FirstOrDefault<Entity>();
                 int numberOfDaysToWait = QAConfiguration.GetAttributeValue<int>("net_numberofdays");
+                int numberOfDaysToWaitForTranslation = QAConfiguration.GetAttributeValue<int>("net_numberofdaysfortranslation");
 
                 //Retrieve the Authorized Person for ECE and HE.
                 string authorisedUserFetch = @"<fetch version='1.0' output-format='xml-platform' mapping='logical' distinct='false'>
@@ -123,6 +125,7 @@ namespace MOE.CustomActivity
                 //Update the Approval Cycle Record.
                 approvalCycle["net_institutetype"] = new EntityReference("net_educationalinstitutetype", instituteType.Id);
                 approvalCycle["net_qaresponsedaysnumber"] = numberOfDaysToWait;
+                approvalCycle["net_numberofdaystowaitfortranslation"] = numberOfDaysToWaitForTranslation;
                 approvalCycle["net_name"] = name;
                 service.Update(approvalCycle);
             }

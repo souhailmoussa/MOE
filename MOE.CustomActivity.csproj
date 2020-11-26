@@ -66,7 +66,13 @@
     <Compile Include="EvaluationSetCharacteristic.cs" />
     <Compile Include="GenerateElementsForQAReport.cs" />
     <Compile Include="InspectionCalculation.cs" />
+    <Compile Include="MovingAnnotations.cs" />
+    <Compile Include="SetSectionHeadInResource.cs" />
+    <Compile Include="ShareDataCollectionWithSectionHead.cs" />
+    <Compile Include="ShareDataCollectionWithTeam.cs" />
+    <Compile Include="ShareInspectionItemsWithTeam.cs" />
     <Compile Include="ShareInspectionStandard.cs" />
+    <Compile Include="ShareWorkOrderWithTeam.cs" />
     <Compile Include="UpdateApprovalCycle.cs" />
     <Compile Include="PublishLeaderOnInspectionElement.cs" />
     <Compile Include="ShareLastSelfCompliance.cs" />
@@ -78,13 +84,15 @@
     <None Include="shmoussa.snk" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Javascript\ApprovalCycleRibbon.js" />
     <Content Include="Javascript\ApprovalCycleWOForm.js" />
-    <Content Include="Javascript\ApprovalCycleWORibbon.js" />
     <Content Include="Javascript\CaseForm.js" />
     <Content Include="Javascript\CaseRibbon.js" />
+    <Content Include="Javascript\DataCollectionForm.js" />
     <Content Include="Javascript\EducationalInstituteForm.js" />
     <Content Include="Javascript\InspectionDataCollectionForm.js" />
     <Content Include="Javascript\InspectionElementForm.js" />
+    <Content Include="Javascript\WorkOrderCalculation.js" />
     <Content Include="Javascript\WorkOrderForm.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
